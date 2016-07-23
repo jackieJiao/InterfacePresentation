@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.institutionQueryDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.institutionQueryDetails" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="query_time" property="queryTime" jdbcType="VARCHAR" />
+    <result column="query_reason" property="queryReason" jdbcType="VARCHAR" />
+    <result column="query_operator" property="queryOperator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, report_id, query_time, query_reason, query_operator
+  </sql>
+  <select id="selectallbyreportid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from institution_query_details
+    where report_id = #{reportid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from institution_query_details
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from institution_query_details
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.institutionQueryDetails" >
+    insert into institution_query_details (id, report_id, query_time, 
+      query_reason, query_operator)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{queryTime,jdbcType=VARCHAR}, 
+      #{queryReason,jdbcType=VARCHAR}, #{queryOperator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.institutionQueryDetails" >
+    insert into institution_query_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="queryTime != null" >
+        query_time,
+      </if>
+      <if test="queryReason != null" >
+        query_reason,
+      </if>
+      <if test="queryOperator != null" >
+        query_operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryTime != null" >
+        #{queryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryReason != null" >
+        #{queryReason,jdbcType=VARCHAR},
+      </if>
+      <if test="queryOperator != null" >
+        #{queryOperator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.institutionQueryDetails" >
+    update institution_query_details
+    <set >
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryTime != null" >
+        query_time = #{queryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryReason != null" >
+        query_reason = #{queryReason,jdbcType=VARCHAR},
+      </if>
+      <if test="queryOperator != null" >
+        query_operator = #{queryOperator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.institutionQueryDetails" >
+    update institution_query_details
+    set report_id = #{reportId,jdbcType=VARCHAR},
+      query_time = #{queryTime,jdbcType=VARCHAR},
+      query_reason = #{queryReason,jdbcType=VARCHAR},
+      query_operator = #{queryOperator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

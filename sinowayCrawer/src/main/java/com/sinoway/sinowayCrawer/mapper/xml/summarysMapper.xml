@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.summarysMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.summarys" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="guarantee_number" property="guaranteeNumber" jdbcType="INTEGER" />
+    <result column="no_settle_account_number" property="noSettleAccountNumber" jdbcType="INTEGER" />
+    <result column="account_number" property="accountNumber" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="overdue_account_num" property="overdueAccountNum" jdbcType="INTEGER" />
+    <result column="overdue90_account_num" property="overdue90AccountNum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, report_id, guarantee_number, no_settle_account_number, account_number, type, 
+    overdue_account_num, overdue90_account_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from summarys
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from summarys
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.summarys" >
+    insert into summarys (id, report_id, guarantee_number, 
+      no_settle_account_number, account_number, type, 
+      overdue_account_num, overdue90_account_num)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{guaranteeNumber,jdbcType=INTEGER}, 
+      #{noSettleAccountNumber,jdbcType=INTEGER}, #{accountNumber,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{overdueAccountNum,jdbcType=INTEGER}, #{overdue90AccountNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.summarys" >
+    insert into summarys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="guaranteeNumber != null" >
+        guarantee_number,
+      </if>
+      <if test="noSettleAccountNumber != null" >
+        no_settle_account_number,
+      </if>
+      <if test="accountNumber != null" >
+        account_number,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="overdueAccountNum != null" >
+        overdue_account_num,
+      </if>
+      <if test="overdue90AccountNum != null" >
+        overdue90_account_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeNumber != null" >
+        #{guaranteeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="noSettleAccountNumber != null" >
+        #{noSettleAccountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="accountNumber != null" >
+        #{accountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAccountNum != null" >
+        #{overdueAccountNum,jdbcType=INTEGER},
+      </if>
+      <if test="overdue90AccountNum != null" >
+        #{overdue90AccountNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.summarys" >
+    update summarys
+    <set >
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeNumber != null" >
+        guarantee_number = #{guaranteeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="noSettleAccountNumber != null" >
+        no_settle_account_number = #{noSettleAccountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="accountNumber != null" >
+        account_number = #{accountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAccountNum != null" >
+        overdue_account_num = #{overdueAccountNum,jdbcType=INTEGER},
+      </if>
+      <if test="overdue90AccountNum != null" >
+        overdue90_account_num = #{overdue90AccountNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.summarys" >
+    update summarys
+    set report_id = #{reportId,jdbcType=VARCHAR},
+      guarantee_number = #{guaranteeNumber,jdbcType=INTEGER},
+      no_settle_account_number = #{noSettleAccountNumber,jdbcType=INTEGER},
+      account_number = #{accountNumber,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      overdue_account_num = #{overdueAccountNum,jdbcType=INTEGER},
+      overdue90_account_num = #{overdue90AccountNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

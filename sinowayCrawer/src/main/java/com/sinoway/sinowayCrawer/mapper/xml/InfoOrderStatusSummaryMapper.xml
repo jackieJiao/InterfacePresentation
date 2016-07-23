@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.InfoOrderStatusSummaryMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.InfoOrderStatusSummary">
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="order_code" property="order_code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="cardid" property="cardid" jdbcType="VARCHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="click_time" property="clicktime" jdbcType="VARCHAR" />
+    <result column="sino_sign_ftime" property="sinoSign" jdbcType="VARCHAR" />
+    <result column="center_sign_ftime" property="centerSign" jdbcType="VARCHAR" />
+    <result column="center_register_fail" property="centerReg" jdbcType="VARCHAR" />
+    <result column="answer_success" property="answerSucc" jdbcType="VARCHAR" />
+    <result column="center_no_answer" property="centerNoSucc" jdbcType="VARCHAR" />
+    <result column="get_code" property="getCode" jdbcType="VARCHAR" />
+    <result column="is_done" property="isDone" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultMap1" type="com.sinoway.sinowayCrawer.entitys.Time3">
+    <result column="user_account" property="phone" jdbcType="VARCHAR" />
+    <result column="i.`name`" property="name" jdbcType="VARCHAR" />
+    <result column="idcard" property="cardid" jdbcType="VARCHAR" />
+    <result column="create_time" property="loginTime" jdbcType="VARCHAR" />
+    <result column="report_time" property="reportTime" jdbcType="VARCHAR" />
+    <result column="request_time" property="requestTime" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, order_code, name, cardid, phone_number, click_time, sino_sign_ftime, center_sign_ftime, 
+    center_register_fail, answer_success, center_no_answer, get_code,is_done
+  </sql>
+  
+  
+  <select id="getTime3" resultMap="BaseResultMap1">
+    SELECT  DISTINCT user_account,i.`name`,idcard,create_time,report_time,request_time,update_time FROM `info_center_account` AS i LEFT JOIN report_appt as r
+ON i.`name`=r.queried_name
+  </select>
+  <select id="getFinishNumber" resultMap="BaseResultMap">
+    SELECT COUNT(*) from info_center_account WHERE `code` is not null
+  </select>
+  <select id="getFinishReg" resultMap="BaseResultMap">
+    SELECT COUNT(*) from info_center_account WHERE center_account is not null
+  </select>
+  
+  
+  
+  <select id="getAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info_order_status_summary
+  </select>
+  
+  <select id="getAllBySCondition" resultMap="BaseResultMap" parameterType="com.sinoway.sinowayCrawer.entitys.SCondition">
+    select 
+    <include refid="Base_Column_List" />
+    from info_order_status_summary ST
+    <where>  
+    	
+    	<if test="status!= '' ">     
+			 <if test="status== 1 ">     
+				and is_done='1'
+       		</if>
+       		 <if test="status== 0 ">     
+				and is_done='0' or is_done='' or is_done is null
+       		</if>    	
+       </if>  
+       
+    	   <if test="timeItem== '' ">     
+           <if test="optionItem!= '' ">     
+          	 <if test="optionItem== 'name' ">     
+           	and	name LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if>
+          	 <if test="optionItem== 'order_code' ">     
+           	and	order_code LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if> 
+          	 <if test="optionItem== 'cardid' ">     
+           	and	cardid LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if> 
+          	 <if test="optionItem== 'phone_number' ">     
+           	and	phone_number LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%') 
+          	 </if>    
+           
+             
+        </if>   
+        </if>   
+         <!-- <if test="timeItem!=null and timeItem!='' ">     
+            ST.STUDENT_NAME LIKE CONCAT(CONCAT('%', #{studentName}),'%')      
+        </if>   -->   
+         <if test="timeItem!= '' ">   
+         <!-- second  -->
+             <if test="timeItem== 'click_time' ">     
+           	and	click_time between #{startTime} and #{stopTime}
+          	 </if>
+          	 <if test="timeItem== 'sino_sign_ftime' ">     
+           	and	sino_sign_ftime between #{startTime} and #{stopTime}
+          	 </if> 
+          	 <if test="timeItem== 'center_sign_ftime' ">     
+           	and	center_sign_ftime between #{startTime} and #{stopTime}
+          	 </if> 
+          	 <if test="timeItem== 'answer_success' ">     
+           	and	answer_success between #{startTime} and #{stopTime}
+          	 </if>
+          	 <if test="timeItem== 'get_code' ">     
+           	and	get_code between #{startTime} and #{stopTime}
+          	 </if>
+          	 <!-- third  -->
+             <if test="optionItem!= '' ">     
+             <if test="optionItem== 'name' ">     
+           	and	name LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if>
+          	 <if test="optionItem== 'order_code' ">     
+           	and	order_code LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if> 
+          	 <if test="optionItem== 'cardid' ">     
+           	and	cardid LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if> 
+          	 <if test="optionItem== 'phone_number' ">     
+           	and	phone_number LIKE CONCAT(CONCAT('%', #{optionValue,jdbcType=VARCHAR}),'%')
+          	 </if>
+        </if>   
+        </if>   
+       
+    </where>      
+  </select>
+</mapper>

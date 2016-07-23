@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+/* 全局 Start */
+* { margin: 0; padding: 0; border: 0 none; font-size: 100%; }
+body { background: #FFF url(images/bg_login.jpg) no-repeat center top; color: #464646; font-size: 12px; font-family: "Microsoft Yahei", Tahoma, Helvetica, SimSun, sans-serif; text-align: center; }
+a { text-decoration: none; color: #585858; cursor: pointer; }
+a:hover { text-decoration: underline; color: #162833; }
+em { font-style: normal; }
+input,
+textarea,
+select { font-size: 12px; color: #585858; }
+input { vertical-align: middle; }
+input[type="text"] { border: 1px solid #DDD; padding: 3px; }
+input[type="text"]:focus,
+input[type="password"]:focus { outline: medium none; }
+textarea { padding: 5px; line-height: 1.8; }
+/* 全局 End */
+
+/* 登录 */
+.loginBox { width: 396px; height: 407px; margin: 150px auto 0; text-align: left; background: url(images/bg_login_396x407.png) no-repeat; }
+.loginBox h1 { padding-top: 25px; font: 23px/25px "Microsoft Yahei"; color: #464646; text-indent: 28px; }
+.loginBox h2 { padding-top: 3px; padding-bottom: 15px; font: 13px/16px "Microsoft Yahei"; color: #919191; text-indent: 28px; border-bottom: 1px solid #e4e4e4; }
+.loginBox .usr,
+.loginBox .pwd { padding: 25px 0 0 28px; color: #888; font-size: 13px; }
+.loginBox .usr p,
+.loginBox .pwd p { margin-bottom: 5px; }
+.loginBox .inputLoginText { width: 308px; font: 18px/20px "Myriad Pro"; height: 18px; padding: 15px; border-radius: 5px; border: 1px solid #e2e2e2; color: #989898; }
+.loginBox .submit { padding-top: 28px; text-align: center; }
+.btnSub { width: 120px; height: 47px; border: 0 none; background: url(images/btn_login.png) no-repeat; cursor: pointer; }
+.btnSub:hover { background-image: url(images/btn_login_hover.png); }

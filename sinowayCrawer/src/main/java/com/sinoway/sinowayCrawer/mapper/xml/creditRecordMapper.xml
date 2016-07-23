@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.creditRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.creditRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="housing_loan_info" property="housingLoanInfo" jdbcType="VARCHAR" />
+    <result column="credit_info" property="creditInfo" jdbcType="VARCHAR" />
+    <result column="loan_info" property="loanInfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, report_id, housing_loan_info, credit_info, loan_info
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from credit_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from credit_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.creditRecord" >
+    insert into credit_record (id, report_id, housing_loan_info, 
+      credit_info, loan_info)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{housingLoanInfo,jdbcType=VARCHAR}, 
+      #{creditInfo,jdbcType=VARCHAR}, #{loanInfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.creditRecord" >
+    insert into credit_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="housingLoanInfo != null" >
+        housing_loan_info,
+      </if>
+      <if test="creditInfo != null" >
+        credit_info,
+      </if>
+      <if test="loanInfo != null" >
+        loan_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="housingLoanInfo != null" >
+        #{housingLoanInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfo != null" >
+        #{creditInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanInfo != null" >
+        #{loanInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.creditRecord" >
+    update credit_record
+    <set >
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="housingLoanInfo != null" >
+        housing_loan_info = #{housingLoanInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfo != null" >
+        credit_info = #{creditInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanInfo != null" >
+        loan_info = #{loanInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.creditRecord" >
+    update credit_record
+    set report_id = #{reportId,jdbcType=VARCHAR},
+      housing_loan_info = #{housingLoanInfo,jdbcType=VARCHAR},
+      credit_info = #{creditInfo,jdbcType=VARCHAR},
+      loan_info = #{loanInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

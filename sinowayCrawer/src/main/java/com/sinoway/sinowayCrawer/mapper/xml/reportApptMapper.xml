@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.reportApptMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.reportAppt" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="data_source" property="dataSource" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+    <result column="report_time" property="reportTime" jdbcType="VARCHAR" />
+    <result column="request_time" property="requestTime" jdbcType="VARCHAR" />
+    <result column="queried_number" property="queriedNumber" jdbcType="VARCHAR" />
+    <result column="queried_papers" property="queriedPapers" jdbcType="VARCHAR" />
+    <result column="query_marriage" property="queryMarriage" jdbcType="VARCHAR" />
+    <result column="queried_name" property="queriedName" jdbcType="VARCHAR" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, token, version, data_source, update_time, report_time, request_time, queried_number, 
+    queried_papers, query_marriage, queried_name, report_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from report_appt
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByReportID" resultType="java.lang.Integer">
+    select count(1)
+    from report_appt
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectallbyqueried_number" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from report_appt
+    where queried_number = #{queried_number,jdbcType=VARCHAR}
+  </select>
+  <select id="selectallbyReportId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from report_appt
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from report_appt
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.reportAppt" >
+    insert into report_appt (id, token, version, 
+      data_source, update_time, report_time, 
+      request_time, queried_number, queried_papers, 
+      query_marriage, queried_name, report_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{token,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{dataSource,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{reportTime,jdbcType=VARCHAR}, 
+      #{requestTime,jdbcType=VARCHAR}, #{queriedNumber,jdbcType=VARCHAR}, #{queriedPapers,jdbcType=VARCHAR}, 
+      #{queryMarriage,jdbcType=VARCHAR}, #{queriedName,jdbcType=VARCHAR}, #{reportId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.reportAppt" >
+    insert into report_appt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="dataSource != null" >
+        data_source,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+      <if test="requestTime != null" >
+        request_time,
+      </if>
+      <if test="queriedNumber != null" >
+        queried_number,
+      </if>
+      <if test="queriedPapers != null" >
+        queried_papers,
+      </if>
+      <if test="queryMarriage != null" >
+        query_marriage,
+      </if>
+      <if test="queriedName != null" >
+        queried_name,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null" >
+        #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null" >
+        #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedNumber != null" >
+        #{queriedNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedPapers != null" >
+        #{queriedPapers,jdbcType=VARCHAR},
+      </if>
+      <if test="queryMarriage != null" >
+        #{queryMarriage,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedName != null" >
+        #{queriedName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.reportAppt" >
+    update report_appt
+    <set >
+      <if test="token != null" >
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null" >
+        data_source = #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        report_time = #{reportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null" >
+        request_time = #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedNumber != null" >
+        queried_number = #{queriedNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedPapers != null" >
+        queried_papers = #{queriedPapers,jdbcType=VARCHAR},
+      </if>
+      <if test="queryMarriage != null" >
+        query_marriage = #{queryMarriage,jdbcType=VARCHAR},
+      </if>
+      <if test="queriedName != null" >
+        queried_name = #{queriedName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.reportAppt" >
+    update report_appt
+    set token = #{token,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      data_source = #{dataSource,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      report_time = #{reportTime,jdbcType=VARCHAR},
+      request_time = #{requestTime,jdbcType=VARCHAR},
+      queried_number = #{queriedNumber,jdbcType=VARCHAR},
+      queried_papers = #{queriedPapers,jdbcType=VARCHAR},
+      query_marriage = #{queryMarriage,jdbcType=VARCHAR},
+      queried_name = #{queriedName,jdbcType=VARCHAR},
+      report_id = #{reportId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.FubiaoMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.Fubiao" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+     <result column="update_time" property="updatetime" jdbcType="VARCHAR" />
+      <result column="error_code" property="error_code" jdbcType="INTEGER" />
+    <result column="error_msg" property="errormsg" jdbcType="VARCHAR" />
+    
+    
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,report_id
+  </sql>
+  
+  
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.Fubiao" >
+    insert into fubiao (id, report_id,status,update_time,error_code,error_msg)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},#{updatetime,jdbcType=VARCHAR},
+    #{error_code,jdbcType=VARCHAR},#{errormsg,jdbcType=VARCHAR}
+    )
+     
+  </insert>
+ 
+</mapper>

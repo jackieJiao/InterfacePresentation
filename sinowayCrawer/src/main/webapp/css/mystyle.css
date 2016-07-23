@@ -1,0 +1,95 @@
+body { font-size: 12px;  font: 12px SimSun, Tahoma, Helvetica, sans-serif; background: #D2E0F2; }
+a { color: Black; text-decoration: none; }
+a:hover { color: Red; text-decoration: underline; }
+.textbox03 { border: #878787 1px solid; padding: 4px 3px; font: Verdana, Geneva, sans-serif, 宋体; line-height: 14px; background-color: #fff; height: auto; font-size: 14px; font-weight: bold; width: 190px; }
+.txt01 { font: Verdana, Geneva, sans-serif, 宋体; padding: 3px 2px 2px 2px; border-width: 1px; border-color: #ddd; color: #000; }
+.txt { border: #878787 1px solid; padding: 4px 3px; font: Verdana, Geneva, sans-serif, 宋体; line-height: 14px; background-color: #fff; height: auto; font-size: 14px; }
+.footer { text-align: center; color: #15428B; margin: 0px; padding: 0px; line-height: 23px; font-weight: bold; }
+.head a { color: White; text-decoration: underline; }
+.easyui-accordion ul { list-style-type: none; margin: 0px; padding: 10px; }
+.easyui-accordion ul li { padding: 0px; }
+.easyui-accordion ul li a { line-height: 24px; }
+.easyui-accordion ul li div { margin: 2px 0px; padding-left: 10px; padding-top: 2px; }
+.easyui-accordion ul li div.hover { border: 1px dashed #99BBE8; background: #E0ECFF; cursor: pointer; }
+.easyui-accordion ul li div.hover a { color: #416AA3; }
+.easyui-accordion ul li div.selected { border: 1px solid #99BBE8; background: #E0ECFF; cursor: default; }
+.easyui-accordion ul li div.selected a { color: #416AA3; font-weight: bold; }
+
+/* 
+.icon { background: url(images/tabicons.png) no-repeat; width: 18px; line-height: 18px; display: inline-block; }
+.icon-sys { background-position: 0px -200px; }
+.icon-set { background-position: -380px -200px; }
+.icon-add { background-position: -20px 0px; }
+.icon-add1 { background: url('icon/edit_add.png') no-repeat; }
+.icon-nav { background-position: -100px -20px; }
+.icon-users { background-position: -100px -480px; }
+.icon-role { background-position: -360px -200px; }
+.icon-set { background-position: -380px -200px; }
+.icon-log { background-position: -380px -80px; }
+.icon-delete16 { background: url('icon/delete.gif') no-repeat; width: 18px; line-height: 18px; display: inline-block; }
+.icon-delete { background-position: -140px -120px; }
+.icon-edit { background-position: -380px -320px; }
+.icon-magic { background-position: 0px -500px; }
+.icon-database { background-position: -20px -140px; }
+.icon-expand { background: url('images/coll2.gif') no-repeat; }
+.icon-collapse { background: url('images/coll3.gif') no-repeat; }
+*/
+
+/* 蓝色表格 */
+.blueTable { width: 100%; border-collapse: collapse; }
+.blueTable tr { }
+.blueTable tr td,
+.blueTable tr th { padding: 8px; text-overflow: clip; word-break: break-all; word-wrap: break-word; table-layout: fixed; border: 1px solid #B5CDF4; vertical-align: middle; }
+.blueTable tr th,
+.blueTable thead tr td { font-weight: 700; }
+.blueTable thead { background: #CCE2FB; color: #000; }
+.blueTable tbody { background: #FFF; }
+
+/* 搜索灰色表格 */
+.table-search { width: 100%; border-collapse: collapse; }
+.table-search tr { }
+.table-search tr td,
+.table-search tr th { padding: 8px; text-overflow: clip; word-break: break-all; word-wrap: break-word; table-layout: fixed; border: 1px solid #DDD; vertical-align: middle; }
+.table-search tr th,
+.table-search thead tr td { font-weight: 700; }
+.table-search thead { background: #F7F7F7; color: #000; }
+.table-search tbody { background: #FFF; }
+.table-search .table-title { width: 70px; background: #F7F7F7; text-align: right; }
+
+/* 间距 */
+.mRL10 { margin: 0 10px; vertical-align: middle; }
+.mt10 { width: 100%; margin-top: 10px; }
+
+/* 顶部导航栏 */
+.topLine { overflow: hidden; height: 40px; background: url(./images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%; line-height: 38px; color: #fff; font-family: Verdana, 微软雅黑,黑体; }
+.topLineL { float: left; display: inline; padding-left: 12px; }
+.topLineR { float: right; display: inline; padding-right: 12px; }
+.topLineR a,
+.topLineR a:hover { color: #FFF; }
+.topLineR span { margin-right: 40px; }
+
+/* 无边框 */
+.noBorder { border: 0 none; }
+.inputDisabled { border: 0 none; background: #fff }
+
+/* 欢迎页 */
+.welcomeBox { background: url(images/bg_welcome.jpg) no-repeat center bottom; }
+.welcomeBox h1 { font: 19px/ 21px "Microsoft YaHei"; color: #000; text-align: center; margin: 0; padding-top: 20px; }
+.welcomeBox h2 { font: 61px/ 61px "Microsoft YaHei"; color: #000; text-align: center; margin: 0; padding-top: 50px; }
+.welcomeBox h2 span { margin: 0 10px; color: #FF0000; }
+
+/* 登录 */
+.loginBox { width: 396px; height: 407px; margin: 150px auto 0; text-align: left; background: url(images/bg_login_396x407.png) no-repeat; }
+.loginBox h1 { padding-top: 25px; font: 23px/25px "Microsoft Yahei"; color: #464646; text-indent: 28px; }
+.loginBox h2 { padding-top: 3px; padding-bottom: 15px; font: 13px/16px "Microsoft Yahei"; color: #919191; text-indent: 28px; border-bottom: 1px solid #e4e4e4; }
+.loginBox .usr,
+.loginBox .pwd { padding: 25px 0 0 28px; color: #888; font-size: 13px; }
+.loginBox .usr p,
+.loginBox .pwd p { margin-bottom: 5px; }
+.loginBox .inputLoginText { width: 308px; font: 18px/20px "Myriad Pro"; height: 18px; padding: 15px; border-radius: 5px; border: 1px solid #e2e2e2; color: #989898; }
+.loginBox .submit { padding-top: 28px; text-align: center; }
+.btnSub { width: 120px; height: 47px; border: 0 none; background: url(images/btn_login.png) no-repeat; cursor: pointer; }
+.btnSub:hover { background-image: url(images/btn_login_hover.png); }
+.m_upload {font-size: 20px; width:60%;margin:0 auto;margin-top:50px;background-color:#fff; box-shadow:1px 1px 1px 1px #95B8E7;border-radius:15px;line-height:30px;text-align:center;}
+.m_upload_a:hover{background-color:#414954;}
+.m_upload_a:link{background-color:#414954;}

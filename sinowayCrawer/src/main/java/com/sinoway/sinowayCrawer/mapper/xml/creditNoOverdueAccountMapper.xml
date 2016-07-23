@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.creditNoOverdueAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.creditNoOverdueAccount" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="overdraft_balance" property="overdraftBalance" jdbcType="REAL" />
+    <result column="deadline_time" property="deadlineTime" jdbcType="VARCHAR" />
+    <result column="credit_limit" property="creditLimit" jdbcType="REAL" />
+    <result column="grant_time" property="grantTime" jdbcType="VARCHAR" />
+    <result column="grant_account_type" property="grantAccountType" jdbcType="VARCHAR" />
+    <result column="grant_name" property="grantName" jdbcType="VARCHAR" />
+    <result column="grant_company" property="grantCompany" jdbcType="VARCHAR" />
+    <result column="used_quotas" property="usedQuotas" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, report_id, status, overdraft_balance, deadline_time, credit_limit, grant_time, 
+    grant_account_type, grant_name, grant_company, used_quotas
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from credit_no_overdue_account
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from credit_no_overdue_account
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.creditNoOverdueAccount" >
+    insert into credit_no_overdue_account (id, report_id, status, 
+      overdraft_balance, deadline_time, credit_limit, 
+      grant_time, grant_account_type, grant_name, 
+      grant_company, used_quotas)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{overdraftBalance,jdbcType=REAL}, #{deadlineTime,jdbcType=VARCHAR}, #{creditLimit,jdbcType=REAL}, 
+      #{grantTime,jdbcType=VARCHAR}, #{grantAccountType,jdbcType=VARCHAR}, #{grantName,jdbcType=VARCHAR}, 
+      #{grantCompany,jdbcType=VARCHAR}, #{usedQuotas,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.creditNoOverdueAccount" >
+    insert into credit_no_overdue_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="overdraftBalance != null" >
+        overdraft_balance,
+      </if>
+      <if test="deadlineTime != null" >
+        deadline_time,
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit,
+      </if>
+      <if test="grantTime != null" >
+        grant_time,
+      </if>
+      <if test="grantAccountType != null" >
+        grant_account_type,
+      </if>
+      <if test="grantName != null" >
+        grant_name,
+      </if>
+      <if test="grantCompany != null" >
+        grant_company,
+      </if>
+      <if test="usedQuotas != null" >
+        used_quotas,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="overdraftBalance != null" >
+        #{overdraftBalance,jdbcType=REAL},
+      </if>
+      <if test="deadlineTime != null" >
+        #{deadlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimit != null" >
+        #{creditLimit,jdbcType=REAL},
+      </if>
+      <if test="grantTime != null" >
+        #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantAccountType != null" >
+        #{grantAccountType,jdbcType=VARCHAR},
+      </if>
+      <if test="grantName != null" >
+        #{grantName,jdbcType=VARCHAR},
+      </if>
+      <if test="grantCompany != null" >
+        #{grantCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="usedQuotas != null" >
+        #{usedQuotas,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.creditNoOverdueAccount" >
+    update credit_no_overdue_account
+    <set >
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="overdraftBalance != null" >
+        overdraft_balance = #{overdraftBalance,jdbcType=REAL},
+      </if>
+      <if test="deadlineTime != null" >
+        deadline_time = #{deadlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit = #{creditLimit,jdbcType=REAL},
+      </if>
+      <if test="grantTime != null" >
+        grant_time = #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantAccountType != null" >
+        grant_account_type = #{grantAccountType,jdbcType=VARCHAR},
+      </if>
+      <if test="grantName != null" >
+        grant_name = #{grantName,jdbcType=VARCHAR},
+      </if>
+      <if test="grantCompany != null" >
+        grant_company = #{grantCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="usedQuotas != null" >
+        used_quotas = #{usedQuotas,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.creditNoOverdueAccount" >
+    update credit_no_overdue_account
+    set report_id = #{reportId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      overdraft_balance = #{overdraftBalance,jdbcType=REAL},
+      deadline_time = #{deadlineTime,jdbcType=VARCHAR},
+      credit_limit = #{creditLimit,jdbcType=REAL},
+      grant_time = #{grantTime,jdbcType=VARCHAR},
+      grant_account_type = #{grantAccountType,jdbcType=VARCHAR},
+      grant_name = #{grantName,jdbcType=VARCHAR},
+      grant_company = #{grantCompany,jdbcType=VARCHAR},
+      used_quotas = #{usedQuotas,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

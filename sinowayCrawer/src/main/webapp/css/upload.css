@@ -1,0 +1,143 @@
+.c_right{
+	background-color: #c1c7d7;
+}
+#loginform
+{
+    width:550px;
+    height:auto;
+  /*   position:relative; */
+    margin:0 auto;
+    left: 30%;
+    top:100px;
+    
+}
+input
+{
+    display:block;
+    margin:0px auto 15px;
+    border-radius:5px;
+    background: #cccccc;
+    width:85%;
+    padding:12px 20px 12px 10px;
+    border:none;
+    color: #000000;
+    box-shadow:inset 0px 1px 5px #d9dede;
+    font-size:0.8em;
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+}
+
+input:focus
+{
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+    box-shadow: 0px 0px 5px 1px #161718;
+}
+
+button
+{
+    background: #8e0707;
+    border-radius:5%;
+    border:1px solid #222526;
+    font-size:0.9em;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    width:85px;
+    height:45px;
+    position:absolute;
+    right: 16px;
+    top: 230px;
+    text-align:center;
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+}
+
+button:hover
+{
+    background:#222526;
+    border-color:#ff5f32;
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+}
+
+button i
+{
+    font-size:20px;
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+}
+
+button:hover i
+{
+    color:#ff5f32;
+    -webkit-transition:0.5s ease;
+    -moz-transition:0.5s ease;
+    -o-transition:0.5s ease;
+    -ms-transition:0.5s ease;
+    transition:0.5s ease;
+}
+
+*:focus{outline:none;}
+::-webkit-input-placeholder {
+    color:#929999;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color:#929999;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color:#929999;
+}
+
+:-ms-input-placeholder {
+    color:#929999;
+}
+
+h1
+{
+    display: block;
+    text-align:center;
+    color: #cccccc;
+    font-size:18px;
+    padding:22px 0px;
+}
+
+#mainlogin
+{
+    float:left;
+    width:450px;
+    height:270px;
+    padding:50px 0 50px 0;
+    position:relative;
+    border-radius:3px;
+    border-left:3px solid #8e0707;
+    margin-top:60px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 12px #1D2153;
+}
+#mainlogin #mainlogin_up{
+	font-size:20px;
+	text-align:center;
+	margin-bottom: 10px;
+}
+#btn{
+	top:300px;
+	right:40px;
+}

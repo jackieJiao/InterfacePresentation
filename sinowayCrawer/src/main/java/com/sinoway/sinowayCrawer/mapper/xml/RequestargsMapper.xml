@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.RequestargsMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.Requestargs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    
+    <result column="token" property="token" jdbcType="VARCHAR" />
+     <result column="env" property="env" jdbcType="VARCHAR" />
+    
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,report_id
+  </sql>
+  
+  
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.Requestargs" >
+    insert into request_args (id, report_id,token,env)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR},#{token,jdbcType=VARCHAR},#{env,jdbcType=VARCHAR}
+    )
+     
+  </insert>
+ 
+</mapper>

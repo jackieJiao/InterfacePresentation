@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinoway.sinowayCrawer.mapper.HousingloanNoOverdueAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.sinoway.sinowayCrawer.entitys.HousingloanNoOverdueAccount" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="deadline_time" property="deadlineTime" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="REAL" />
+    <result column="grant_amount_type" property="grantAmountType" jdbcType="VARCHAR" />
+    <result column="clear_time" property="clearTime" jdbcType="VARCHAR" />
+    <result column="grant_time" property="grantTime" jdbcType="VARCHAR" />
+    <result column="grant_amount" property="grantAmount" jdbcType="REAL" />
+    <result column="grant_name" property="grantName" jdbcType="VARCHAR" />
+    <result column="grant_company" property="grantCompany" jdbcType="VARCHAR" />
+     <result column="expiration_time" property="expiration_time" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, report_id, deadline_time, balance, grant_amount_type, clear_time, grant_time, 
+    grant_amount, grant_name, grant_company,expiration_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from loan_no_overdue_account
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from loan_no_overdue_account
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sinoway.sinowayCrawer.entitys.HousingloanNoOverdueAccount" >
+    insert into housing_loan_no_overdue_account (id, report_id, deadline_time, 
+      balance, grant_amount_type, clear_time, 
+      grant_time, grant_amount, grant_name, 
+      grant_company,expiration_time)
+    values (#{id,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, #{deadlineTime,jdbcType=VARCHAR}, 
+      #{balance,jdbcType=REAL}, #{grantAmountType,jdbcType=VARCHAR}, #{clearTime,jdbcType=VARCHAR}, 
+      #{grantTime,jdbcType=VARCHAR}, #{grantAmount,jdbcType=REAL}, #{grantName,jdbcType=VARCHAR}, 
+      #{grantCompany,jdbcType=VARCHAR},#{expiration_time,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinoway.sinowayCrawer.entitys.loanNoOverdueAccount" >
+    insert into loan_no_overdue_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="deadlineTime != null" >
+        deadline_time,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="grantAmountType != null" >
+        grant_amount_type,
+      </if>
+      <if test="clearTime != null" >
+        clear_time,
+      </if>
+      <if test="grantTime != null" >
+        grant_time,
+      </if>
+      <if test="grantAmount != null" >
+        grant_amount,
+      </if>
+      <if test="grantName != null" >
+        grant_name,
+      </if>
+      <if test="grantCompany != null" >
+        grant_company,
+      </if>
+      <if test="expiration_time != null" >
+        expiration_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="deadlineTime != null" >
+        #{deadlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=REAL},
+      </if>
+      <if test="grantAmountType != null" >
+        #{grantAmountType,jdbcType=VARCHAR},
+      </if>
+      <if test="clearTime != null" >
+        #{clearTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null" >
+        #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantAmount != null" >
+        #{grantAmount,jdbcType=REAL},
+      </if>
+      <if test="grantName != null" >
+        #{grantName,jdbcType=VARCHAR},
+      </if>
+      <if test="grantCompany != null" >
+        #{grantCompany,jdbcType=VARCHAR},
+      </if>
+       <if test="expiration_time != null" >
+        #{expiration_time,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinoway.sinowayCrawer.entitys.loanNoOverdueAccount" >
+    update loan_no_overdue_account
+    <set >
+      <if test="reportId != null" >
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="deadlineTime != null" >
+        deadline_time = #{deadlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=REAL},
+      </if>
+      <if test="grantAmountType != null" >
+        grant_amount_type = #{grantAmountType,jdbcType=VARCHAR},
+      </if>
+      <if test="clearTime != null" >
+        clear_time = #{clearTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null" >
+        grant_time = #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="grantAmount != null" >
+        grant_amount = #{grantAmount,jdbcType=REAL},
+      </if>
+      <if test="grantName != null" >
+        grant_name = #{grantName,jdbcType=VARCHAR},
+      </if>
+      <if test="grantCompany != null" >
+        grant_company = #{grantCompany,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinoway.sinowayCrawer.entitys.loanNoOverdueAccount" >
+    update loan_no_overdue_account
+    set report_id = #{reportId,jdbcType=VARCHAR},
+      deadline_time = #{deadlineTime,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=REAL},
+      grant_amount_type = #{grantAmountType,jdbcType=VARCHAR},
+      clear_time = #{clearTime,jdbcType=VARCHAR},
+      grant_time = #{grantTime,jdbcType=VARCHAR},
+      grant_amount = #{grantAmount,jdbcType=REAL},
+      grant_name = #{grantName,jdbcType=VARCHAR},
+      grant_company = #{grantCompany,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
